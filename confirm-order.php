@@ -51,7 +51,7 @@ $data['pm'] = $_SESSION['payment_method'] ?? "cod";
 
             <div class="flex gap mt-20">
                 <p class="tal"><b>Total Price:</b></p>
-                <p class="tar">Rs. <?php echo htmlspecialchars($data['total_price'] ?? '0'); ?></p>
+                <p class="tar">₱<?php echo number_format((float)($data['total_price'] ?? 0), 2); ?></p>
             </div>
 
             <div class="flex gap mt-20">

@@ -68,7 +68,9 @@
         <div class="checkout_info">
             <h5 class="final_price_without_vat"> Total: <?php echo $totalPrice; ?> </h5>
             <h5 class="vat"> Vat(13 % ): <?php echo $vat; ?> </h5>
-            <h5 class="final_price"> Grand Total: Rs.<?php echo $totalPrice + $vat; ?> </h5>
+           <h5 class="final_price">
+    Grand Total: ₱<?php echo number_format($totalPrice + $vat, 2); ?>
+</h5>
         </div>
         <div class="mt-20 flex direction-col">
             <a href="./menu.php" class="button mt-20 border-curve" style="background-color: #F7922F0a;"> Continue Shopping </a>

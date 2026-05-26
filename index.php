@@ -79,7 +79,9 @@
                             <a href="./details.php?name=<?php echo str_replace(" ", "-", strtolower($data['name'])); ?>" class="card__food-name heading">
                                 <h2 class="card__food-title heading"><?php echo $data['name']; ?></h2>
                             </a>
-                            <p class="card__food-price heading">Rs. <?php echo $data['price']; ?></p>
+                           <p class="card__food-price heading">
+    ₱<?php echo number_format($data['price'], 2); ?>
+</p>
                         </article>
                         <p class="card__food-desc"><?php echo $data['short_desc']; ?></p>
                         <div class="card__btns flex">
@@ -132,7 +134,9 @@
                         <a href="./details.php?name=<?php echo str_replace(" ", "-", strtolower($data['name'])); ?>">
                             <h2 class="card__food-title heading"><?php echo $data['name']; ?></h2>
                         </a>
-                        <p class="card__food-price heading">Rs. <?php echo $data['price']; ?></p>
+                        <p class="card__food-price heading">
+    ₱<?php echo number_format($data['price'], 2); ?>
+</p>
                     </article>
                     <p class="card__food-desc"><?php echo $data['short_desc']; ?></p>
                     <div class="card__btns flex">

@@ -179,7 +179,7 @@ if (isset($_GET['veg']) && $_GET['veg'] != "all") {
                                     </a>
 
                                     <p class="card__food-price heading">
-                                        Rs. <?php echo htmlspecialchars($food['price']); ?>
+                                       ₱<?php echo number_format((float)$food['price'], 2); ?>
                                     </p>
 
                                 </article>

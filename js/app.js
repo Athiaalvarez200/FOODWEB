@@ -215,7 +215,7 @@ const incrementBtn = document.querySelector(".details_quantity-btn-inc")
 const decrementBtn = document.querySelector(".details_quantity-btn-dec")
 const quantity = document.querySelector(".details_quantity")
 const price = document.querySelector(".details_price")
-const detailsPrice = price && price.textContent.split("Rs. ")[1]
+const detailsPrice = price && price.textContent.split("₱")[1]
 
 incrementBtn && incrementBtn.addEventListener("click", () => {
     quantity.value = parseInt(quantity.value) + 1
@@ -235,7 +235,7 @@ quantity && quantity.addEventListener("change", () => {
 })
 
 function updateDetailsPrice() {
-    price.textContent = `Rs. ${detailsPrice * quantity.value}`
+    price.textContent = `₱${(parseFloat(detailsPrice) * parseInt(quantity.value)).toFixed(2)}`
     price.style.fontWeight = "bold"
 }
 
@@ -287,7 +287,7 @@ function getData(backendAPI) {
 
                 const divCartTotal = document.createElement("p")
                 divCartTotal.setAttribute("class", "cart_total")
-                divCartTotal.textContent = "Total: Rs. " + totalPrice
+                divCartTotal.textContent = "Total: ₱" + parseFloat(totalPrice).toFixed(2);
 
                 const btnCheckout = document.createElement("a")
                 btnCheckout.setAttribute("class", "button border-curve checkout-btn")
@@ -349,17 +349,17 @@ function getElem() {
 
     // initially display correct price
     cartItemPrice && cartItemPrice.forEach((price, i) => {
-        price.textContent = "Rs. " + parseInt(hiddenPrice[i].textContent) * parseInt(cartQuantity[i].value)
+        price.textContent = "₱" + (parseInt(hiddenPrice[i].textContent) * parseInt(cartQuantity[i].value)).toFixed(2);
     })
 
     // calculate total price
     function calculateCartTotal() {
         let total = 0
         cartItemPrice && cartItemPrice.forEach((price) => {
-            total += parseInt(price.textContent.split("Rs. ")[1])
+            total += parseFloat(price.textContent.split("₱")[1])
         })
 
-        cartTotal && (cartTotal.textContent = "Total: Rs. " + total)
+        cartTotal && (cartTotal.textContent = "Total: ₱" + total.toFixed(2))
     }
 
     calculateCartTotal()
@@ -515,7 +515,7 @@ function createCartItemContainer(id, name, img, price, quantity) {
 
     const cartItemPrice = document.createElement("p")
     cartItemPrice.setAttribute("class", "cart_price ml-35")
-    cartItemPrice.textContent = "Rs. " + (parseInt(price) * parseInt(quantity))
+    cartItemPrice.textContent = "₱" + (parseFloat(price) * parseFloat(quantity)).toFixed(2)
     div3.appendChild(cartItemPrice)
 
     const cartContentForm = document.createElement("form")
@@ -613,8 +613,8 @@ function calculatePrice() {
     priceTotal && (priceTotal.textContent = parseInt(hiddenQuantity.value) * parseInt(buyPrice.textContent))
     finalPriceWithoutVat && (finalPriceWithoutVat.textContent = priceTotal.textContent)
     vat && (vat.textContent = "Vat (13%): " + parseInt(priceTotal.textContent) * 0.13)
-    finalPrice && (finalPrice.textContent = "Grand Total: Rs. " + (parseInt(priceTotal.textContent) + parseInt(vat.textContent.split("Vat (13%): ")[1])))
-    finalPriceWithoutVat && (finalPriceWithoutVat.textContent = "Total: " + priceTotal.textContent)
+    finalPrice && (finalPrice.textContent = "Grand Total: ₱" + (parseFloat(priceTotal.textContent) + parseFloat(vat.textContent.split("Vat (13%): ")[1])).toFixed(2))
+    finalPriceWithoutVat && (finalPriceWithoutVat.textContent = "Total: ₱" + parseFloat(priceTotal.textContent).toFixed(2))
 }
 
 // ==================== for menu sidebar filter ==================
