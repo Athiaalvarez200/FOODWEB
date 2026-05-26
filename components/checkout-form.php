@@ -13,25 +13,16 @@
 
         <form action="./backend/validate-checkout-form.php" method="post" class="checkout_form flex direction-col shadow border-curve p-20">
             <label for="name">Name:*</label>
-            <input type="text" placeholder="John Sharma" name="name" class="p_7-20" id="name" required autofocus>
+            <input type="text" placeholder="Enter customer name" name="name" class="p_7-20" id="name" required autofocus>
             <label for="phone">Phone:*</label>
-            <input type="tel" name="phone" placeholder="9800000000" maxlength="10" class="p_7-20" id="phone" required>
+            <input type="tel" name="phone" placeholder="Enter phone number" maxlength="10" class="p_7-20" id="phone" required>
             <label for="address">Address:*</label>
-            <input type="text" name="address" placeholder="Chardobato, Banepa near check post" class="p_7-20" id="address" required>
+            <input type="text" name="address" placeholder="Enter delivery address" class="p_7-20" id="address" required>
 
-            <div class="warn_msg"></div>
-
-            <div class="for-later flex items-center">
-                <input type="checkbox" name="for-later" class="p_7-20 for_later" id="for-later">
-                <label for="for-later" style="white-space: nowrap;">&nbsp; Order for Later</label>
-            </div>
-
-            <div class="for_later_inputs">
-                <!-- coming from js (get-footer-script.php) -->
-            </div>
+            
 
             <label for="note"> Note: </label>
-            <input type="text" placeholder="example: with no sugar" name="note" class="p_7-20" id="note">
+            <input type="text" placeholder="Add notes or special instructions" name="note" class="p_7-20" id="note">
             <p style="font-weight: 700; margin-top: 10px;"> Payment Method </p>
             <div class="flex items-center justify-start payment">
                 <div class="flex items-center">
@@ -64,7 +55,7 @@
             <input type="hidden" name="total_price" value="<?php echo $totalPrice + $vat; ?>">
 
 
-            <div class="g-recaptcha" data-sitekey="6LcFd8YlAAAAAJySyvEo186Cwn6nQv5vx91A_XUE"></div>
+            
 
 
             <button type="submit" name="<?php if (isset($isFromBuy))

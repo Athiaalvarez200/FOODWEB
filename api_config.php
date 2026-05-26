@@ -1,6 +1,6 @@
 <?php
 // REST API base URL. Keep APIFOOD folder inside htdocs: C:\xampp\htdocs\APIFOOD\FoodAPI
-$API_BASE = "http://localhost/APIFOOD/";
+$API_BASE = "http://127.0.0.1:8000/";
 
 function api_get($endpoint) {
     global $API_BASE;
